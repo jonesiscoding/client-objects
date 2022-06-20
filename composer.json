@@ -12,7 +12,8 @@
   "autoload": {
     "psr-4": {
       "DevCoding\\Client\\Object\\": "src/Object",
-      "DevCoding\\Client\\Resolver\\": "src/Resolver"
+      "DevCoding\\Client\\Resolver\\": "src/Resolver",
+      "DevCoding\\Client\\Factory\\": "src/Factory"
     }
   },
   "version": "1.0.1",
