@@ -15,7 +15,7 @@
       "DevCoding\\Client\\Resolver\\": "src/Resolver"
     }
   },
-  "version": "1.0",
+  "version": "1.0.1",
   "require": {
     "php": ">=7.0",
     "psr/container": "^1.0|^2.0",
