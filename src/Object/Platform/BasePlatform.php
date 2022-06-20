@@ -18,6 +18,8 @@ abstract class BasePlatform implements PlatformInterface
   protected $_version;
   /** @var string */
   protected $_platform;
+  /** @var string */
+  protected $_name;
 
   public function __construct(string $platform, ClientVersion $version)
   {
@@ -31,6 +33,11 @@ abstract class BasePlatform implements PlatformInterface
   public function getPlatform(): string
   {
     return $this->_platform;
+  }
+
+  public function getName()
+  {
+    return $this->getPlatform();
   }
 
   /**
