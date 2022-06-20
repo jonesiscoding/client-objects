@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace DevCoding\Client\Factory;
+
 use DevCoding\Client\Object\Headers\UserAgentString;
 use DevCoding\Client\Object\Platform\PlatformImmutable;
 use DevCoding\Client\Resolver\Platform as PlatformResolver;
@@ -66,10 +68,10 @@ class PlatformFactory
       $result = [];
       if ($matcher::isUserAgentMatch($UserAgent, $result))
       {
-        $name = $result['name']    ?? 'Unknown';
-        $vers = $result['version'] ?? null;
+        $platform = $result['platform'] ?? $result['name'] ?? 'Unknown';
+        $version  = $result['version'] ?? null;
 
-        return new PlatformImmutable($name, $vers);
+        return new PlatformImmutable($platform, $version);
       }
     }
 

@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace DevCoding\Client\Factory;
+
 use DevCoding\Client\Object\Headers\UA;
 use DevCoding\Client\Object\Headers\UAFullVersionList;
 use DevCoding\Client\Object\Headers\UserAgentString;
