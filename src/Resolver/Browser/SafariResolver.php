@@ -28,14 +28,14 @@ class SafariResolver extends ComplexBrowserResolver
       '#(Version)\/(\d+)\.(\d+)(?:\.(\d+))?.*Safari\/#',
       $exclude,
       function ($uam) {
-          // Safari Newer Versions
-          $major = $uam[2] ?? null;
-          $minor = $uam[3] ?? null;
-          $patch = $uam[4] ?? null;
-          $fVers = implode('.', [$major, $minor, $patch]);
+        // Safari Newer Versions
+        $major = $uam[2] ?? null;
+        $minor = $uam[3] ?? null;
+        $patch = $uam[4] ?? null;
+        $fVers = implode('.', [$major, $minor, $patch]);
 
-          return [0 => $uam[0], 1 => 'Safari', 'brand' => 'Safari', 2 => $fVers, 'version' => $fVers];
-        }
+        return [0 => $uam[0], 1 => 'Safari', 'brand' => 'Safari', 2 => $fVers, 'version' => $fVers];
+      }
     );
 
     // Chrome, Edge, or Firefox on iOS

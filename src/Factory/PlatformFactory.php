@@ -69,7 +69,7 @@ class PlatformFactory
       if ($matcher::isUserAgentMatch($UserAgent, $result))
       {
         $platform = $result['platform'] ?? $result['name'] ?? 'Unknown';
-        $version  = $result['version'] ?? null;
+        $version  = $result['version']  ?? null;
 
         return new PlatformImmutable($platform, $version);
       }

@@ -27,30 +27,31 @@ class OperaMiniResolver extends ComplexBrowserResolver
       '#(Opera)\/[9|10]\.[80|50|61].*Mini\/((\d+)\.(\d+)(?:\.(\d+))?)#',
       null,
       function ($uam) {
-          $brand   = 'Opera Mini';
-          $version = $uam[2];
-          return [ 0 => $uam[0], 1 => $brand, 'brand' => $brand, 2 => $version, 'version' => $version];
-        }
+        $brand   = 'Opera Mini';
+        $version = $uam[2];
+
+        return [0 => $uam[0], 1 => $brand, 'brand' => $brand, 2 => $version, 'version' => $version];
+      }
     );
 
     $mini98 = new BrowserRegex(
       '#(Opera Mini)\/9\.80.*(Mobi|J2ME)\/((\d+)\.(\d+)(?:\.(\d+))?)#',
       null,
       function ($uam) {
-          $brand   = 'Opera Mini';
-          $version = $uam[3];
-          return [ 0 => $uam[0], 1 => $brand, 'brand' => $brand, 2 => $version, 'version' => $version];
-        }
+        $brand   = 'Opera Mini';
+        $version = $uam[3];
+        return [ 0 => $uam[0], 1 => $brand, 'brand' => $brand, 2 => $version, 'version' => $version];
+      }
     );
 
     $mini9 = new BrowserRegex(
       '#(Opera Mini)\/(9)\s#',
       null,
       function ($uam) {
-          $brand   = 'Opera Mini';
-          $version = $uam[2];
-          return [ 0 => $uam[0], 1 => $brand, 'brand' => $brand, 2 => $version, 'version' => $version];
-        }
+        $brand   = 'Opera Mini';
+        $version = $uam[2];
+        return [ 0 => $uam[0], 1 => $brand, 'brand' => $brand, 2 => $version, 'version' => $version];
+      }
     );
 
     return [$mini, $mini98, $mini9];
