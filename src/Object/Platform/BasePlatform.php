@@ -12,7 +12,7 @@ namespace DevCoding\Client\Object\Platform;
 
 use DevCoding\Client\Object\Version\ClientVersion;
 
-abstract class BasePlatform
+abstract class BasePlatform implements PlatformInterface
 {
   /** @var ClientVersion */
   protected $_version;
@@ -36,7 +36,7 @@ abstract class BasePlatform
   /**
    * @return ClientVersion
    */
-  public function getVersion(): ClientVersion
+  public function getVersion()
   {
     return $this->_version;
   }

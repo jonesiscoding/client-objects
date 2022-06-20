@@ -28,7 +28,7 @@ interface PlatformInterface
   const WINMOBILE = WindowsMobileMatcher::PLATFORM;
   const WINPHONE  = WindowsPhoneMatcher::PLATFORM;
 
-  public function getVersion(): BaseVersion;
+  public function getVersion();
 
   public function getPlatform();
 
