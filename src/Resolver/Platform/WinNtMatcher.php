@@ -121,7 +121,7 @@ class WinNtMatcher extends PlatformMatcher
       case '2012':
         return ['name' => 'Windows Server 2012', 'version' => 6.2];
       default:
-        return ['name' => static::NAME, 'version' => $vers];
+        return ['name' => static::PLATFORM, 'version' => $vers];
     }
   }
 

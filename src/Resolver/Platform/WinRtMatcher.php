@@ -31,7 +31,7 @@ class WinRtMatcher extends PlatformMatcher
         $matches['version'] = '6.2' == substr($matches['version'], 0, 3) ? '8' : '8.1';
       }
 
-      $matches['name'] = static::NAME;
+      $matches['name'] = static::PLATFORM;
 
       return true;
     }
