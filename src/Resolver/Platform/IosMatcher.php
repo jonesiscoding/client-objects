@@ -12,8 +12,9 @@ namespace DevCoding\Client\Resolver\Platform;
 
 class IosMatcher extends PlatformMatcher
 {
-  const KEY     = 'iOS';
-  const PATTERN = '#(?<name>iPod touch|iPod|iPad|iPhone).+[OS|os][\s_](?<version>[0-9_.]+)#';
+  const KEY      = 'iOS';
+  const PLATFORM = 'iOS';
+  const PATTERN  = '#(?<name>iPod touch|iPod|iPad|iPhone).+[OS|os][\s_](?<version>[0-9_.]+)#';
 
   public static function isUserAgentMatch($ua, &$matches)
   {

@@ -12,8 +12,9 @@ namespace DevCoding\Client\Resolver\Platform;
 
 class WindowsMobileMatcher extends PlatformMatcher
 {
-  const PATTERN = "#(?<name>Windows Mobile)\s*(?<version>[0-9_.]+)#";
-  const KEY     = 'Windows Mobile';
+  const PATTERN  = "#(?<name>Windows Mobile)\s*(?<version>[0-9_.]+)#";
+  const KEY      = 'Windows Mobile';
+  const PLATFORM = 'Windows Mobile';
 
   public static function isUserAgentMatch($ua, &$matches)
   {

@@ -12,8 +12,9 @@ namespace DevCoding\Client\Resolver\Platform;
 
 class LinuxMatcher extends PlatformMatcher
 {
-  const KEY     = 'Linux';
-  const PATTERN = '#^(?!.*(Win|Android|Darwin|T)).*(?<name>Linux).*$#i';
+  const KEY      = 'Linux';
+  const PLATFORM = 'Linux';
+  const PATTERN  = '#^(?!.*(Win|Android|Darwin|T)).*(?<name>Linux).*$#i';
 
   public static function isUserAgentMatch($ua, &$matches)
   {

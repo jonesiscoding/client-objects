@@ -12,9 +12,9 @@ namespace DevCoding\Client\Resolver\Platform;
 
 class WinRtMatcher extends PlatformMatcher
 {
-  const PATTERN = "#(?<name>Windows\s*NT\s*)(?<version>6\.[23]);\s*ARM#";
-  const NAME    = 'Windows RT';
-  const KEY     = 'WinRT';
+  const PATTERN  = "#(?<name>Windows\s*NT\s*)(?<version>6\.[23]);\s*ARM#";
+  const PLATFORM = 'Windows RT';
+  const KEY      = 'WinRT';
 
   /**
    * @param string $ua

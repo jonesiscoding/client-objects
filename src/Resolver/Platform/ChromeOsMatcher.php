@@ -12,8 +12,9 @@ namespace DevCoding\Client\Resolver\Platform;
 
 class ChromeOsMatcher extends PlatformMatcher
 {
-  const PATTERN = "#(?<name>CrOS).*Chrome\/(?<version>[0-9._]+)#";
-  const KEY     = 'ChromeOS';
+  const PATTERN  = "#(?<name>CrOS).*Chrome\/(?<version>[0-9._]+)#";
+  const KEY      = 'ChromeOS';
+  const PLATFORM = 'ChromeOS';
 
   public static function isUserAgentMatch($ua, &$matches)
   {

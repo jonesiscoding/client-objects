@@ -14,8 +14,9 @@ use DevCoding\Client\Object\Headers\UserAgentString;
 
 class AndroidMatcher extends PlatformMatcher
 {
-  const PATTERN = '#^(?!.*(Windows Phone|IEMobile)).*(?<name>Android)[\s-\/]*(?<version>[0-9._]+).*$#i';
-  const KEY     = 'Android';
+  const PATTERN  = '#^(?!.*(Windows Phone|IEMobile)).*(?<name>Android)[\s-\/]*(?<version>[0-9._]+).*$#i';
+  const KEY      = 'Android';
+  const PLATFORM = 'Android';
 
   /**
    * @param string|UserAgentString $ua

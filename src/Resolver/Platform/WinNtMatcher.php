@@ -13,8 +13,8 @@ namespace DevCoding\Client\Resolver\Platform;
 class WinNtMatcher extends PlatformMatcher
 {
   const PATTERN = '#^(?!.*(6\.[23]; ARM|CE)).*(?<name>WinNT\s|Windows\sNT\s|Windows\sServer\s|Windows\s|Win\s?)(?<version>(2000|2003|2008|95|Vista|98|ME|Me|XP|9x|[0-9]+\.[0-9_.]+)).*$#';
-  const KEY     = 'WinNT';
-  const NAME    = 'Windows';
+  const KEY      = 'WinNT';
+  const PLATFORM = 'Windows';
 
   public static function isUserAgentMatch($ua, &$matches)
   {
@@ -54,6 +54,8 @@ class WinNtMatcher extends PlatformMatcher
         $matches['name']    = 'Win' == $matches['name'] ? 'Windows' : $matches['name'];
         $matches['version'] = null;
       }
+
+      $matches = array_merge($matches, ['platform' => 'Windows']);
 
       return true;
     }

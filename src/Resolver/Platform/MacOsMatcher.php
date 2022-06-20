@@ -15,8 +15,9 @@ use DevCoding\Client\Object\Version\ClientVersion;
 
 class MacOsMatcher extends PlatformMatcher
 {
-  const PATTERN = "#(?<name>Macintosh)[^\)0-9]*(?<version>[0-9_.]+)#";
-  const KEY     = 'macOS';
+  const PATTERN  = "#(?<name>Macintosh)[^\)0-9]*(?<version>[0-9_.]+)#";
+  const KEY      = 'macOS';
+  const PLATFORM = 'macOS';
 
   public static function isUserAgentMatch($ua, &$matches)
   {

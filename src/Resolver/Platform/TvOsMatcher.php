@@ -12,8 +12,9 @@ namespace DevCoding\Client\Resolver\Platform;
 
 class TvOsMatcher extends PlatformMatcher
 {
-  const PATTERN = '#(?<name>Apple\s?TV|tvOS)/?(?<version>[0-9_.]+)?#';
-  const KEY     = 'tvOS';
+  const PATTERN  = '#(?<name>Apple\s?TV|tvOS)/?(?<version>[0-9_.]+)?#';
+  const KEY      = 'tvOS';
+  const PLATFORM = 'tvOS';
 
   public static function isUserAgentMatch($ua, &$matches)
   {
