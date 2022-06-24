@@ -49,6 +49,11 @@ class BaseBrowser
     return $this->version;
   }
 
+  public function getName()
+  {
+    return $this->getBrand();
+  }
+
   public function getBrand(): string
   {
     return $this->brand;

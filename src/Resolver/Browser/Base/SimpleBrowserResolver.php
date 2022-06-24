@@ -46,7 +46,8 @@ abstract class SimpleBrowserResolver extends BaseBrowserResolver implements User
               ->setMobile((($mp = $BM->getMobilePattern())) && $UserAgentString->isMatch($mp))
           ;
 
-          return new BrowserImmutable($BM->getBrands(), $BM->getVersion(), $BM->isMobile());
+          $brands = $BM->getBrands();
+          return new BrowserImmutable(reset($brands), $BM->getVersion(), $BM->isMobile());
         }
       }
     }
