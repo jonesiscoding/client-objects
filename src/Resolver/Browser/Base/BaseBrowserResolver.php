@@ -32,7 +32,7 @@ abstract class BaseBrowserResolver implements ClientUAMatchInterface
     if ($fullVersionList = $HeaderBag->resolve('Sec-CH-UA-Full-Version-List'))
     {
       // If we have a full version list, that has everything we need
-      return BaseBrowserResolver::fromUAFullVersionList($fullVersionList, $isMobile);
+      return static::fromUAFullVersionList($fullVersionList, $isMobile);
     }
     elseif ($uaHint = $HeaderBag->resolve('Sec-CH-UA'))
     {
@@ -53,11 +53,11 @@ abstract class BaseBrowserResolver implements ClientUAMatchInterface
       }
 
       // Otherwise, just use the UA, which includes the major version anyway.
-      return SimpleBrowserResolver::fromUA($uaHint, $isMobile);
+      return static::fromUA($uaHint, $isMobile);
     }
     elseif ($userAgentString = $HeaderBag->resolve(UserAgentString::HEADERS))
     {
-      return SimpleBrowserResolver::fromUserAgentString($userAgentString);
+      return static::fromUserAgentString(new UserAgentString($userAgentString));
     }
 
     return null;
