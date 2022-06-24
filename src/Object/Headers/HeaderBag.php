@@ -94,7 +94,7 @@ class HeaderBag
     if (!isset($this->headers[$id]))
     {
       $sKey = $this->toServer($id);
-      $sVal = $_ENV[$sKey] ?? $_SERVER[$sKey];
+      $sVal = $_ENV[$sKey] ?? $_SERVER[$sKey] ?? null;
       if (!isset($sVal))
       {
         return false;
@@ -120,7 +120,7 @@ class HeaderBag
     foreach ($array as $key => $value)
     {
       $sKey = $this->toServer($key);
-      $sVal = $_ENV[$sKey] ?? $_SERVER[$sKey];
+      $sVal = $_ENV[$sKey] ?? $_SERVER[$sKey] ?? null;
       if (!isset($sVal) || $overwrite)
       {
         // TODO: Set in ENV?
