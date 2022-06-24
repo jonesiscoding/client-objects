@@ -45,12 +45,12 @@ class Pointer
 
   public function isCoarse()
   {
-    return 'coarse' === $this->getType();
+    return static::COARSE === $this->getType();
   }
 
   public function isFine()
   {
-    return 'fine' === $this->getType();
+    return static::FINE === $this->getType();
   }
 
   /**
