@@ -10,7 +10,6 @@
 
 namespace DevCoding\Client\Resolver\Browser\Base;
 
-
 use DevCoding\Client\Object\Browser\BrowserImmutable;
 use DevCoding\Client\Object\Headers\UserAgentString;
 use DevCoding\Client\Object\Version\ClientVersion;
@@ -46,8 +45,12 @@ abstract class SimpleBrowserResolver extends BaseBrowserResolver implements User
               ->setMobile((($mp = $BM->getMobilePattern())) && $UserAgentString->isMatch($mp))
           ;
 
-          $brands = $BM->getBrands();
-          return new BrowserImmutable(reset($brands), $BM->getVersion(), $BM->isMobile());
+          return new BrowserImmutable(
+            $BM->getPrimaryBrand(),
+            $BM->getVersion(),
+            $BM->getEngineBrand(),
+            $BM->isMobile()
+          );
         }
       }
     }

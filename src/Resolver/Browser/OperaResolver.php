@@ -20,9 +20,20 @@ class OperaResolver extends ComplexBrowserResolver
   /** @var HeaderBag */
   protected $_HeaderBag;
 
-  public function getBrands()
+  /**
+   * @return string
+   */
+  public function getPrimaryBrand(): string
   {
-    return ['Opera'];
+    return 'Opera';
+  }
+
+  /**
+   * @return null
+   */
+  public function getEngineBrand()
+  {
+    return null;
   }
 
   public function getPatterns()

@@ -21,6 +21,24 @@ abstract class BaseBrowserResolver implements ClientUAMatchInterface
   abstract public static function fromUserAgentString(UserAgentString $UserAgentString);
 
   /**
+   * @return string
+   */
+  abstract public function getPrimaryBrand(): string;
+
+  /**
+   * @return string|null
+   */
+  abstract public function getEngineBrand();
+
+  /**
+   * @return string[]
+   */
+  public function getBrands()
+  {
+    return array_filter([$this->getPrimaryBrand(), $this->getEngineBrand()]);
+  }
+
+  /**
    * @return BrowserImmutable|null
    */
   public static function fromHeaders()
@@ -49,7 +67,12 @@ abstract class BaseBrowserResolver implements ClientUAMatchInterface
           }
         }
 
-        return new BrowserImmutable($Resolver->getBrands(), $v, $isMobile);
+        return new BrowserImmutable(
+          $Resolver->getPrimaryBrand(),
+          $v,
+          $Resolver->getEngineBrand(),
+          $isMobile
+        );
       }
 
       // Otherwise, just use the UA, which includes the major version anyway.
@@ -82,7 +105,12 @@ abstract class BaseBrowserResolver implements ClientUAMatchInterface
       }
     }
 
-    return new BrowserImmutable($BM->getBrands(), $CUA->getVersion(), $mobile);
+    return new BrowserImmutable(
+      $BM->getPrimaryBrand(),
+      $CUA->getVersion(),
+      $BM->getEngineBrand(),
+      $mobile
+    );
   }
 
   public static function fromUAFullVersionList($fullVersionList, $mobile = false)
@@ -98,7 +126,12 @@ abstract class BaseBrowserResolver implements ClientUAMatchInterface
       }
     }
 
-    return new BrowserImmutable($Resolver->getBrands(), $VersionList->getVersion(), $mobile);
+    return new BrowserImmutable(
+      $Resolver->getPrimaryBrand(),
+      $VersionList->getVersion(),
+      $Resolver->getEngineBrand(),
+      $mobile
+    );
   }
 
   /**

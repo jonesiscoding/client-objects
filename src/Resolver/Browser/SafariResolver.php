@@ -16,9 +16,20 @@ use DevCoding\Client\Resolver\Browser\Base\ComplexBrowserResolver;
 
 class SafariResolver extends ComplexBrowserResolver
 {
-  public function getBrands()
+  /**
+   * @return string
+   */
+  public function getPrimaryBrand(): string
   {
-    return ['Safari'];
+    return 'Safari';
+  }
+
+  /**
+   * @return string
+   */
+  public function getEngineBrand()
+  {
+    return 'WebKit';
   }
 
   public function getPatterns()

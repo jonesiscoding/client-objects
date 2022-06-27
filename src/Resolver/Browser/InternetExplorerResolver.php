@@ -16,6 +16,16 @@ use DevCoding\Client\Resolver\Browser\Base\ComplexBrowserResolver;
 
 class InternetExplorerResolver extends ComplexBrowserResolver
 {
+  public function getPrimaryBrand(): string
+  {
+    return 'Internet Explorer';
+  }
+
+  public function getEngineBrand()
+  {
+    return null;
+  }
+
   /**
    * @param UserAgentString $userAgentString
    *
@@ -54,13 +64,5 @@ class InternetExplorerResolver extends ComplexBrowserResolver
   public function getMobilePattern()
   {
     return '#(Windows Phone|IEMobile|MSIEMobile|Windows CE)#i';
-  }
-
-  /**
-   * @return string[]
-   */
-  public function getBrands()
-  {
-    return ['Internet Explorer'];
   }
 }

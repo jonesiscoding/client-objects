@@ -16,9 +16,20 @@ use DevCoding\Client\Resolver\Browser\Base\ComplexBrowserResolver;
 
 class OperaMiniResolver extends ComplexBrowserResolver
 {
-  public function getBrands()
+  /**
+   * @return string
+   */
+  public function getPrimaryBrand(): string
   {
-    return ['Opera'];
+    return 'Opera';
+  }
+
+  /**
+   * @return string
+   */
+  public function getEngineBrand()
+  {
+    return 'Opera Mini';
   }
 
   public function getPatterns()

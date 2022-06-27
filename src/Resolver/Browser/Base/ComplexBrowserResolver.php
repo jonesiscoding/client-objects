@@ -37,7 +37,12 @@ abstract class ComplexBrowserResolver extends BaseBrowserResolver
       {
         if ($Resolver->isBrandName($match->brand))
         {
-          return new BrowserImmutable($Resolver->getBrands(), $match->version, $Resolver->isMobileUserAgentString($UserAgentString));
+          return new BrowserImmutable(
+            $Resolver->getPrimaryBrand(),
+            $match->version,
+            $Resolver->getEngineBrand(),
+            $Resolver->isMobileUserAgentString($UserAgentString)
+          );
         }
       }
     }

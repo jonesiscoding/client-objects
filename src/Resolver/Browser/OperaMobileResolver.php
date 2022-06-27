@@ -16,9 +16,20 @@ use DevCoding\Client\Resolver\Browser\Base\ComplexBrowserResolver;
 
 class OperaMobileResolver extends ComplexBrowserResolver
 {
-  public function getBrands()
+  /**
+   * @return string
+   */
+  public function getPrimaryBrand(): string
   {
-    return ['Opera Mobile'];
+    return 'Opera Mobile';
+  }
+
+  /**
+   * @return string|null;
+   */
+  public function getEngineBrand()
+  {
+    return null;
   }
 
   public function getPatterns()

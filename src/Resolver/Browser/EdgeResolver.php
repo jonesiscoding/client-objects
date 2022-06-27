@@ -19,9 +19,14 @@ use DevCoding\Client\Resolver\Browser\Base\SimpleBrowserResolver;
  */
 class EdgeResolver extends SimpleBrowserResolver
 {
-  public function getBrands()
+  public function getEngineBrand()
   {
-    return ['Microsoft Edge'];
+    return null;
+  }
+
+  public function getPrimaryBrand(): string
+  {
+    return 'Microsoft Edge';
   }
 
   public function getIncludePattern()

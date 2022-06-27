@@ -15,11 +15,19 @@ use DevCoding\Client\Resolver\Browser\Base\SimpleBrowserResolver;
 class FirefoxResolver extends SimpleBrowserResolver
 {
   /**
-   * @return string[]
+   * @return string
    */
-  public function getBrands()
+  public function getPrimaryBrand(): string
   {
-    return ['Firefox'];
+    return 'Mozilla Firefox';
+  }
+
+  /**
+   * @return string
+   */
+  public function getEngineBrand()
+  {
+    return 'Firefox';
   }
 
   /**

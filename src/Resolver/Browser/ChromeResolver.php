@@ -14,14 +14,17 @@ use DevCoding\Client\Resolver\Browser\Base\SimpleBrowserResolver;
 
 class ChromeResolver extends SimpleBrowserResolver
 {
-  public function getBrands()
+  /**
+   * @return string
+   */
+  public function getEngineBrand(): string
   {
-    return ['Chrome', 'Chromium'];
+    return 'Chromium';
   }
 
   public function getIncludePattern()
   {
-    return '#(?P<brand>Chrome|Chromium)\/(?P<version>[0-9\.]+)#';
+    return '#(?P<brand>Google Chrome|Chromium)\/(?P<version>[0-9\.]+)#';
   }
 
   public function getExcludePattern()
@@ -32,5 +35,13 @@ class ChromeResolver extends SimpleBrowserResolver
   public function getMobilePattern()
   {
     return '#(CrMo|EdgA|Android|Mobile)#i';
+  }
+
+  /**
+   * @return string
+   */
+  public function getPrimaryBrand(): string
+  {
+    return 'Google Chrome';
   }
 }

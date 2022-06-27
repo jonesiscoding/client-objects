@@ -12,6 +12,11 @@ namespace DevCoding\Client\Resolver\Browser;
 
 class EdgResolver extends ChromeResolver
 {
+  public function getPrimaryBrand(): string
+  {
+    return 'Microsoft Edge';
+  }
+
   public function getIncludePattern()
   {
     return '#(?<brand>Edg|EdgA)\/(?<version>[0-9\.]+)#';
@@ -20,11 +25,6 @@ class EdgResolver extends ChromeResolver
   public function getExcludePattern()
   {
     return str_replace(['Edg|', 'Edg)'], ['', ')'], parent::getExcludePattern());
-  }
-
-  public function getBrands()
-  {
-    return ['Microsoft Edge', 'Chromium'];
   }
 
   public function isBrandName($name)
