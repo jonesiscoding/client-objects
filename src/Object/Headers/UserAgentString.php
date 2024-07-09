@@ -70,7 +70,7 @@ class UserAgentString
    *
    * @return array|bool
    */
-  public function getMatches($inc, $exc = null, $normalizer = null)
+  public function getMatches(string $inc, $exc = null, $normalizer = null)
   {
     $matches = [];
     if ($this->isMatch($inc, $exc, $matches))

@@ -25,7 +25,7 @@ class UA
   /**
    * @param string $string
    */
-  public function __construct($string)
+  public function __construct(string $string)
   {
     $this->string = $string;
   }
@@ -136,7 +136,7 @@ class UA
    *
    * @return int|string|null
    */
-  private function getCommonValue($arr)
+  private function getCommonValue(array $arr)
   {
     // Get count of each version number represented
     $counts = array_count_values($arr);
