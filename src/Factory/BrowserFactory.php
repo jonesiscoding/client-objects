@@ -2,7 +2,7 @@
 /**
  * BrowserFactory.php
  *
- * © 2021/11 AMJones <am@jonesiscoding.com>
+ * © 2024/06 AMJones <am@jonesiscoding.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,152 +10,65 @@
 
 namespace DevCoding\Client\Factory;
 
-use DevCoding\Client\Object\Headers\UA;
-use DevCoding\Client\Object\Headers\UAFullVersionList;
-use DevCoding\Client\Object\Headers\UserAgentString;
-use DevCoding\Client\Resolver\Browser\Base\BaseBrowserResolver;
-use DevCoding\Client\Resolver\Browser\ChromeResolver;
-use DevCoding\Client\Resolver\Browser\EdgResolver;
-use DevCoding\Client\Resolver\Browser\FirefoxResolver;
-use DevCoding\Client\Resolver\Browser\InternetExplorerResolver;
-use DevCoding\Client\Resolver\Browser\OperaMiniResolver;
-use DevCoding\Client\Resolver\Browser\OperaMobileResolver;
-use DevCoding\Client\Resolver\Browser\OperaResolver;
-use DevCoding\Client\Resolver\Browser\SafariResolver;
-use DevCoding\CodeObject\Helper\StringHelper;
+use DevCoding\Client\Object\Browser\Browser;
+use DevCoding\Client\Resolver\Browser\BrowserResolver;
 
+/**
+ * Factory for the building of Browser objects
+ *
+ * @package DevCoding\Client\Factory
+ */
 class BrowserFactory
 {
-  const RESOLVERS = [
-      ChromeResolver::class,
-      EdgResolver::class,
-      FirefoxResolver::class,
-      SafariResolver::class,
-      InternetExplorerResolver::class,
-      OperaResolver::class,
-      OperaMobileResolver::class,
-      OperaMiniResolver::class
-  ];
-  /**
-   * @var
-   */
+  /** @var BrowserResolver[] */
   protected $resolvers;
 
   /**
-   * @param string[]|BaseBrowserResolver[] $resolvers
+   * Instantiates a BrowserFactory object from a configuration array.  See BrowserResolver::fromArray
+   *
+   * @param array $config
+   *
+   * @return BrowserFactory
    */
-  public function __construct(array $resolvers = self::RESOLVERS)
+  public static function fromConfig(array $config)
+  {
+    $resolvers = [];
+    foreach ($config as $value)
+    {
+      $resolvers[] = BrowserResolver::fromArray($value);
+    }
+
+    return new BrowserFactory($resolvers);
+  }
+
+  /**
+   * Instantiates a BrowserFactory instance using the given array of BrowserResolver objects.
+   *
+   * @param BrowserResolver[] $resolvers
+   */
+  public function __construct(array $resolvers)
   {
     $this->resolvers = $resolvers;
   }
 
-  public static function build($criteria = null, $resolvers = self::RESOLVERS)
-  {
-    $Factory = new BrowserFactory($resolvers);
-
-    if (!isset($criteria))
-    {
-      return $Factory->fromHeaders();
-    }
-    elseif ($criteria instanceof UAFullVersionList)
-    {
-      return $Factory->fromUAFullVersionList($criteria);
-    }
-    elseif ($criteria instanceof UA)
-    {
-      return $Factory->fromUA($criteria);
-    }
-    elseif ($criteria instanceof UserAgentString)
-    {
-      return $Factory->fromUserAgentString($criteria);
-    }
-    elseif ($Factory->isStringable($criteria))
-    {
-      return $Factory->fromString($criteria);
-    }
-
-    return null;
-  }
-
-  public function fromString(string $string)
-  {
-    return $this->fromUserAgentString(new UserAgentString($string));
-  }
-
-  public function fromUA(UA $UA)
-  {
-    foreach ($this->getResolvers() as $class)
-    {
-      /** @var BaseBrowserResolver $Resolver */
-      $Resolver = $class instanceof BaseBrowserResolver ? $class : new $class();
-      if ($Browser = $Resolver::fromUA($UA))
-      {
-        return $Browser;
-      }
-    }
-
-    return null;
-  }
-
-  public function fromUAFullVersionList(UAFullVersionList $UA)
-  {
-    foreach ($this->getResolvers() as $class)
-    {
-      /** @var BaseBrowserResolver $Resolver */
-      $Resolver = $class instanceof BaseBrowserResolver ? $class : new $class();
-      if ($Browser = $Resolver::fromUAFullVersionList($UA))
-      {
-        return $Browser;
-      }
-    }
-
-    return null;
-  }
-
-  public function fromUserAgentString(UserAgentString $UserAgentString)
-  {
-    foreach ($this->getResolvers() as $class)
-    {
-      /** @var BaseBrowserResolver $Resolver */
-      $Resolver = $class instanceof BaseBrowserResolver ? $class : new $class();
-      if ($Browser = $Resolver::fromUserAgentString($UserAgentString))
-      {
-        return $Browser;
-      }
-    }
-
-    return null;
-  }
-
-  public function fromHeaders()
-  {
-    foreach ($this->getResolvers() as $class)
-    {
-      /** @var BaseBrowserResolver $Resolver */
-      $Resolver = new $class();
-      if ($Browser = $Resolver::fromHeaders())
-      {
-        return $Browser;
-      }
-    }
-
-    return null;
-  }
-
-  protected function getResolvers()
-  {
-    return $this->resolvers;
-  }
-
   /**
-   * Evaluates whether the given value can be cast to a string without error.
+   * Build a Browser object from the given string. which can be a Sec-CH-UA-Full-Version-List header, Sec-CH-UA header,
+   * or a legacy User Agent string.
    *
-   * @param mixed $val the value to evaluate
+   * @param string $string
    *
-   * @return bool TRUE if the value may be safely cast to a string
+   * @return Browser|null
    */
-  protected function isStringable($val)
+  public function build(string $string)
   {
-    return StringHelper::create()->isStringable($val);
+    foreach ($this->resolvers as $resolver)
+    {
+      if ($browser = $resolver->resolve($string))
+      {
+        return $browser;
+      }
+    }
+
+    return null;
   }
 }
