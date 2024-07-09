@@ -1,0 +1,37 @@
+{
+  "agent": "op_mob",
+  "name": "Opera Mobile",
+  "patterns": [
+    {
+      "include": "(?P<brand>Opera Tablet).{0,200}Version/(?P<version>(\\d+)\\.(\\d+)(?:\\.(\\d+)|))",
+      "exclude": "(UC? ?Browser|UCWEB|U3)",
+      "mobile": true
+    },
+    {
+      "include": "Opera/.{1,100}(?P<brand>Opera Mobi).{1,100}Version/(?P<version>(\\d+)\\.(\\d+))",
+      "exclude": "(UC? ?Browser|UCWEB|U3)"
+    },
+    {
+      "include": "Opera/(?P<version>(\\d+)\\.(\\d+)).{1,100}(?P<brand>Opera Mobi)",
+      "exclude": "(UC? ?Browser|UCWEB|U3)"
+    },
+    {
+      "include": "#(?:Mobile Safari).*OPR\\/(?P<version>(\\d+)\\.(\\d+)\\.(\\d+))#",
+      "exclude": "(UC? ?Browser|UCWEB|U3)",
+      "brands": ["Opera Mobi","WebKit"],
+      "mobile": true
+    },
+    {
+      "include": "Opera\\/9.80.*(?P<brand>Opera Mobi)/.*Version\\/(?P<version>(\\d+)\\.(\\d+)(?:\\.(\\d+))?)",
+      "mobile": true
+    },
+    {
+      "include": "#(?P<brand>Opera Mobi)#",
+      "version": 6.0
+    }
+  ],
+  "brands": [
+    "Opera",
+    "Opera Mobi"
+  ]
+}

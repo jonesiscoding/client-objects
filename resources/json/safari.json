@@ -1,0 +1,20 @@
+{
+  "agent": "safari",
+  "name": "Safari",
+  "patterns": [
+    {
+      "include": "#(Version)\\/(\\d+)\\.(\\d+)(?:\\.(\\d+))?.*Safari\\/#",
+      "brand": "Safari",
+      "exclude": "#(PhantomJS|Silk|rekonq|OPR|Chrome|Android|Edge|bot)#",
+      "mobile": "#(?<brand>CriOS|EdgiOS|FxiOS)\\/(?<version>[0-9\\.]+)#"
+    },
+    {
+      "include": "#(?<brand>CriOS|EdgiOS|FxiOS)\\/(?<version>[0-9\\.]+)#",
+      "mobile": "#(?<brand>CriOS|EdgiOS|FxiOS)\\/(?<version>[0-9\\.]+)#"
+    }
+  ],
+  "brands": [
+    "Safari",
+    "WebKit"
+  ]
+}

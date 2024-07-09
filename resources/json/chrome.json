@@ -1,0 +1,15 @@
+{
+  "agent": "chrome",
+  "name": "Google Chrome",
+  "patterns": [
+    {
+      "include": "#(?P<brand>Chrome|Chromium)\\/(?P<version>[0-9\\.]+)#",
+      "exclude": "#(MRCHROME|FlyFlow|baidubrowser|bot|Edge|Edg|Silk|MxBrowser|Crosswalk|Slack_SSB|HipChat|IEMobile)#i",
+      "mobile": "#(CrMo|EdgA|Android|Mobile)#i"
+    }
+  ],
+  "brands": [
+    "Chrome",
+    "Chromium"
+  ]
+}

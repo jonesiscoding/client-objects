@@ -1,0 +1,15 @@
+{
+  "agent": "edge",
+  "name": "Microsoft Edge",
+  "patterns": [
+    {
+      "include": "#(?<brand>Edg|EdgA)\\/(?<version>[0-9\\.]+)#",
+      "exclude": "#(MRCHROME|FlyFlow|baidubrowser|bot|Edge|Silk|MxBrowser|Crosswalk|Slack_SSB|HipChat|IEMobile)#i",
+      "engine": "Chromium"
+    }
+  ],
+  "brands": [
+    "Microsoft Edge",
+    "Chromium"
+  ]
+}

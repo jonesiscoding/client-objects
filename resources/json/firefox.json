@@ -1,0 +1,14 @@
+{
+  "name": "Firefox",
+  "patterns": [
+    {
+      "include": "#(?<brand>Firefox|Fennec|Namoroka|Shiretoka|Minefield|MozillaDeveloperPreview)\\/(?<version>[^\\s^;^)]+)#",
+      "exclude": "#(bot|MSIE|HbbTV|Chimera|Seamonkey|Camino)#i",
+      "mobile": "#(Fennec|Tablet|Phone|Mobile|Maemo)#i"
+    }
+  ],
+  "brands": [
+    "Firefox",
+    "Gecko"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "agent": "edge",
+  "name": "Microsoft Edge",
+  "patterns": [
+    {
+      "include": "#(?<brand>Edge)\\/(?<version>[0-9_.]+)#",
+      "mobile": "#(Windows Mobile)#",
+      "engine": "EdgeHTML"
+    }
+  ],
+  "brands": [
+    "Microsoft Edge",
+    "EdgeHTML"
+  ]
+}

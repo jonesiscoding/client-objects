@@ -1,0 +1,21 @@
+{
+  "agent": "ie",
+  "name": "Internet Explorer",
+  "patterns": [
+    {
+      "include": "#(?<brand>Trident)\\/[0-9]\\.[0-9];[^rv]*rv:((?<version>[0-9._]+))#",
+      "brand": "Internet Explorer",
+      "mobile": "#(Windows Phone|IEMobile|MSIEMobile|Windows CE)#i"
+    },
+    {
+      "include": "#(?<brand>MSIE)\\s*(?<version>[0-9_.]+)[^;]*;#",
+      "engine": "Trident",
+      "brand": "Internet Explorer",
+      "mobile": "#(Windows Phone|IEMobile|MSIEMobile|Windows CE)#i"
+    }
+  ],
+  "brands": [
+    "Internet Explorer",
+    "Trident"
+  ]
+}

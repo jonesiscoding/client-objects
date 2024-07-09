@@ -1,0 +1,25 @@
+{
+  "agent": "opera",
+  "name": "Opera",
+  "patterns": [
+    {
+      "include": "#(?:Chrome).{1,300}(OPR)/(?P<version>(\\d+)\\.(\\d+)\\.(\\d+))#",
+      "brands": ["Opera","Chromium"],
+      "exclude": "#(Opera Mini|Opera Mobi|Mobile Safari)#"
+    },
+    {
+      "include": "#(Opera)\\/9.80.*Version\\/(?P<version>(\\d+)\\.(\\d+)(?:\\.(\\d+))?)#",
+      "exclude": "#(Opera Mini|Opera Mobi|Mobile Safari)#",
+    },
+    {
+      "include": "#(?P<brand>Opera)[/|\\s](?P<version>([0-9]+)\\.?([0-9]*))#"
+    },
+    {
+      "include": "#(?P<brand>Opera)#",
+      "version": 3.5
+    }
+  ],
+  "brands": [
+    "Opera"
+  ]
+}
