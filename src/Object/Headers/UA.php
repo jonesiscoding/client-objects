@@ -8,7 +8,6 @@
  * file that was distributed with this source code.
  */
 
-
 namespace DevCoding\Client\Object\Headers;
 
 use DevCoding\Client\Object\Version\ClientVersion;
@@ -16,7 +15,8 @@ use DevCoding\Client\Object\Browser\Brand;
 
 class UA
 {
-  const KNOWN = ['Chrome', 'Chromium', 'Edge', 'Edg', 'Firefox', 'Safari', 'Opera'];
+  const KNOWN           = ['Chrome', 'Chromium', 'Edge', 'Edg', 'Firefox', 'Safari', 'Opera'];
+  const DEFAULT_VERSION = 73;
   /** @var Brand[] */
   protected $brands;
   /** @var string */
