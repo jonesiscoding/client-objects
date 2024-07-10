@@ -16,7 +16,7 @@
       "DevCoding\\Client\\Factory\\": "src/Factory"
     }
   },
-  "version": "2.0",
+  "version": "2.0.1",
   "prefer-stable": true,
   "minimum-stability": "dev",
   "repositories": [
@@ -24,21 +24,9 @@
       "type": "package",
       "package": {
         "name": "fyrd/caniuse",
-        "version": "dev-master",
-        "source": {
-          "url": "https://github.com/Fyrd/caniuse",
-          "type": "git",
-          "reference": "main"
-        }
-      }
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "deviscoding/caniparse",
         "version": "dev-main",
         "source": {
-          "url": "https://github.com/jonesiscoding/caniparse",
+          "url": "https://github.com/Fyrd/caniuse",
           "type": "git",
           "reference": "main"
         }
@@ -50,7 +38,6 @@
     "ext-json": "*",
     "psr/container": "^1.0|^2.0",
     "deviscoding/code-objects": "^1.3",
-    "fyrd/caniuse": "dev-master",
-    "deviscoding/caniparse": "dev-main"
+    "fyrd/caniuse": "dev-main"
   }
 }
