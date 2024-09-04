@@ -65,21 +65,15 @@ class Browser
    */
   public function getFullVersionList(): UAFullVersionList
   {
-    $grease  = rand(0, count($this->brands));
     $version = (string)$this->version;
     $parts   = [];
 
-    foreach ($this->brands as $idx => $brand)
+    $parts[] = $this->getGrease(true, UA::DEFAULT_VERSION);
+    foreach ($this->brands as $brand)
     {
-      if ($idx === $grease)
-      {
-        $parts[] = $this->getGrease(true, UA::DEFAULT_VERSION);
-      }
-      else
-      {
-        $parts[] = sprintf('"%s"; v="%s"', $brand, $version);
-      }
+      $parts[] = sprintf('"%s"; v="%s"', $brand, $version);
     }
+    shuffle($parts);
 
     return new UAFullVersionList(implode(', ', $parts));
   }
