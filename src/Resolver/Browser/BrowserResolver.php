@@ -78,7 +78,7 @@ class BrowserResolver
    */
   public function resolve(string $string)
   {
-    if (preg_match('#^"([^"]+)";v="([^"]+)",#', $string, $match))
+    if (preg_match('#^"?([^";]+)"?;v="?([^",]+)"?,#', $string, $match))
     {
       $object = false === strpos('.', $match[1]) ? new UA($string) : new UAFullVersionList($string);
 

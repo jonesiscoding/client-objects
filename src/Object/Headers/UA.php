@@ -92,7 +92,7 @@ class UA
   protected function getBrandMatches($string)
   {
     $m = [];
-    if (preg_match_all('/(?<brand>[^"]+)\";\s?v="(?<version>[^"]+)",?/', $string, $m, PREG_SET_ORDER))
+    if (preg_match_all('/(?<brand>[^"]+)\";\s?v="(?<version>[^",\s]+)"?,?\s?/', $string, $m, PREG_SET_ORDER))
     {
       return $m;
     }
