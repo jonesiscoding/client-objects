@@ -52,7 +52,23 @@ class BrowserResolver
   {
     $this->brands   = $brands;
     $this->patterns = $patterns;
-    $this->features = $features;
+
+    foreach ($features as $feature)
+    {
+      if ($feature instanceof BrowserFeature)
+      {
+        $this->features[] = $feature;
+      }
+      else
+      {
+        $this->features[] = new BrowserFeature(
+          $feature['name'],
+          $feature['first']    ?? null,
+          $feature['prefixed'] ?? null,
+          $feature['last']     ?? null
+        );
+      }
+    }
   }
 
   /**
