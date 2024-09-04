@@ -2,12 +2,10 @@
 
 namespace DevCoding\Client\Resolver\Browser;
 
-use DevCoding\Client\Object\Browser\Brand;
 use DevCoding\Client\Object\Browser\Browser;
 use DevCoding\Client\Object\Browser\BrowserFeature;
 use DevCoding\Client\Object\Headers\UA;
 use DevCoding\Client\Object\Headers\UAFullVersionList;
-
 
 class BrowserResolver
 {
