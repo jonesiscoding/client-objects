@@ -50,12 +50,13 @@ trait GreaseTrait
   protected function getGrease(bool $full = false, int $maxMajor = 96)
   {
     $symbols = ['(', ')', ';', '#', ':', ' '];
+    $terms = ['What', 'Cool', 'Not', 'Fun', 'Super', 'Your'];
 
     return sprintf(
       '%s%s%sBrowser"; v="%s"',
-      array_rand($symbols),
-      array_rand(['What', 'Cool', 'Not', 'Fun', 'Super', 'Your']),
-      array_rand($symbols),
+      $symbols[array_rand($symbols)],
+      $terms[array_rand($terms)],
+      $symbols[array_rand($symbols)],
       $this->getGreaseVersion($full)
     );
   }
