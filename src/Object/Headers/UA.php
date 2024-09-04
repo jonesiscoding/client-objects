@@ -15,7 +15,7 @@ use DevCoding\Client\Object\Browser\Brand;
 
 class UA
 {
-  const KNOWN           = ['Chrome', 'Chromium', 'Edge', 'Edg', 'Firefox', 'Safari', 'Opera'];
+  const KNOWN           = ['Chrome', 'Chromium', 'Internet Explorer', 'Microsoft Edge', 'Edge', 'Edg', 'Firefox', 'Safari', 'Opera'];
   const DEFAULT_VERSION = 73;
   /** @var Brand[] */
   protected $brands;
@@ -68,7 +68,10 @@ class UA
         $this->brands = [];
         foreach ($m as $set)
         {
-          $this->brands[] = new Brand(trim($set['brand']), $set['version']);
+          if (in_array($set['brand'], self::KNOWN))
+          {
+            $this->brands[] = new Brand(trim($set['brand']), new ClientVersion($set['version']));
+          }
         }
       }
     }
