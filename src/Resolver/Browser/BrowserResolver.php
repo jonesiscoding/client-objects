@@ -70,12 +70,14 @@ class BrowserResolver
       {
         if ($object->isBrandName($brand))
         {
-          $brands = $object->getBrands();
-          $brands = array_walk($brands, function (Brand $v) {
-            return $v->getName();
-          });
+          $names     = [];
+          $objBrands = $object->getBrands();
+          foreach ($objBrands as $objBrand)
+          {
+            $names[] = $objBrand->getName();
+          }
 
-          return new Browser($brands, $object->getVersion(), $this->features);
+          return new Browser($names, $object->getVersion(), $this->features);
         }
       }
 
