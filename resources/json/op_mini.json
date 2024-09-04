@@ -4,7 +4,7 @@
   "patterns": [
     {
       "include": "#(Opera)\\/[9|10]\\.[80|50|61].*Mini\\/(?P<version>(\\d+)\\.(\\d+)(?:\\.(\\d+))?)#",
-      "exclude": "(UC? ?Browser|UCWEB|U3)",
+      "exclude": "#(UC? ?Browser|UCWEB|U3)#",
       "brand": "Opera Mini",
       "mobile": true
     },
@@ -14,12 +14,12 @@
     },
     {
       "include": "#(?P<brand>Opera Mini)\\/(?P<version>9)\\s#",
-      "exclude": "(UC? ?Browser|UCWEB|U3)",
+      "exclude": "#(UC? ?Browser|UCWEB|U3)#",
       "mobile": true
     },
     {
-      "include": "(OPiOS)/(?P<version>(\\d+).(\\d+).(\\d+))",
-      "exclude": "(UC? ?Browser|UCWEB|U3)",
+      "include": "#(OPiOS)/(?P<version>(\\d+).(\\d+).(\\d+))#",
+      "exclude": "#(UC? ?Browser|UCWEB|U3)#",
       "mobile": true,
       "brands": "Opera Mini",
       "engine": "WebKit"
