@@ -81,7 +81,7 @@ class BrowserPattern
     else
     {
       // Set the brand if we can identify it in the array
-      $brand = $array['brand'] ?? (is_numeric($array['0']) ? null : $array['0']);
+      $brand = $array['brand'] ?? (is_numeric($array['1']) ? null : $array['1']);
 
       // Set the engine if we can identify it in the array
       $engine = $array['engine'] ?? null;
