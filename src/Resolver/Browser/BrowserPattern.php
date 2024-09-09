@@ -115,7 +115,7 @@ class BrowserPattern
       }
 
       // Combine all known brands, putting class properties first
-      $brands = array_merge($this->brands, array_filter([$brand, $engine]));
+      $brands = array_merge($this->brands ?? [], array_filter([$brand, $engine]));
       // Make parsable brand string
       $brand = implode('|', $brands);
 
