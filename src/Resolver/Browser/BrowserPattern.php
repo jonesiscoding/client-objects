@@ -119,7 +119,7 @@ class BrowserPattern
       // Make parsable brand string
       $brand = implode('|', $brands);
 
-      return [ 0 => $array[0], 1 => $brand, 'brand' => $brand, 2 => $version, 'version' => $version];
+      return [ 0 => $array[0] ?? null, 1 => $brand, 'brand' => $brand, 2 => $version, 'version' => $version];
     }
   }
 }
