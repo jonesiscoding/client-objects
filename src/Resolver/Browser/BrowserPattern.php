@@ -19,7 +19,13 @@ class BrowserPattern
 
   public static function fromArray(array $pattern)
   {
-    return new BrowserPattern($pattern['include'], $pattern['exclude'] ?? null, $pattern['normalizer'] ?? null);
+    return new BrowserPattern(
+      $pattern['include'],
+      $pattern['exclude']    ?? null,
+      $pattern['brand']      ?? $pattern['brands'] ?? null,
+      $pattern['version']    ?? null,
+      $pattern['normalizer'] ?? null
+    );
   }
 
   public function __construct(string $include, $exclude = null, $brands = null, $version = null, $normalizer = null)
