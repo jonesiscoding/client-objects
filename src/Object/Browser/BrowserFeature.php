@@ -103,7 +103,7 @@ class BrowserFeature implements \JsonSerializable
       return false;
     }
 
-    if ($version->lt($this->first))
+    if (!isset($this->first) || $version->lt($this->first))
     {
       if (!$allowPrefixed || $version->lt($this->prefixed))
       {
