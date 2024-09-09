@@ -109,7 +109,7 @@ class BrowserPattern
       {
         // Only take entries that contain at least one number
         $numbers = array_filter($array, function ($v) {
-          return preg_match('#[0-9]#', $v);
+          return preg_match('#^[0-9]+$#', $v);
         });
         $version = !empty($numbers) ? implode('.', $numbers) : null;
       }
