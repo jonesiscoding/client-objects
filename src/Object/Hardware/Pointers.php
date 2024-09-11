@@ -33,7 +33,7 @@ class Pointers extends \ArrayObject
     $merged = array_unique(array_merge([$primary], $additional));
 
     // Validate the input
-    if (self::NONE === $primary && !empty(array_diff([self::NONE], [$additional])))
+    if (self::NONE === $primary && !empty($additional))
     {
       throw new \InvalidArgumentException($this->getNoneMessage());
     }
