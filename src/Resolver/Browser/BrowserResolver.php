@@ -109,7 +109,7 @@ class BrowserResolver
     {
       if ($pattern->isString($string, $match))
       {
-        $brands  = !empty($match['brand']) ? explode('|', $match->brand) : ['Unknown'];
+        $brands  = !empty($match['brand']) ? explode('|', $match['brand']) : ['Unknown'];
         $version = $match['version'] ?? null;
 
         return new Browser($brands, $version, $this->features);
