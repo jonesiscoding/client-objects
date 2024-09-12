@@ -78,7 +78,7 @@ class BrowserResolver
   {
     if (preg_match('#^"?([^";]+)"?;v="?([^",]+)"?,#', $string, $match))
     {
-      $object = false === strpos('.', $match[1]) ? new UA($string) : new UAFullVersionList($string);
+      $object = false === strpos($match[2], '.') ? new UA($string) : new UAFullVersionList($string);
 
       foreach ($this->brands as $brand)
       {
