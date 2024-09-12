@@ -8,7 +8,6 @@
  * file that was distributed with this source code.
  */
 
-
 namespace DevCoding\Client\Object\Headers;
 
 use DevCoding\Client\Object\Version\ClientVersion;
@@ -24,9 +23,6 @@ class UAFullVersionList extends UA
     return $this->getCommonVersion();
   }
 
-  /**
-   * @return array|Brand[]
-   */
   public function getBrands()
   {
     if (!isset($this->brands))
@@ -34,10 +30,16 @@ class UAFullVersionList extends UA
       if ($m = $this->getBrandMatches($this->string))
       {
         $this->brands = [];
+        $versions     = [];
         foreach ($m as $set)
         {
-          $version        = new ClientVersion($set['version']);
-          $this->brands[] = new Brand(trim($set['brand']), $version);
+          $versions[trim($set['brand'])] = $set['version'];
+        }
+        $brands = Brand::sort(array_keys($versions));
+
+        foreach ($brands as $brand)
+        {
+          $this->brands[] = new Brand($brand, new ClientVersion($versions[$brand]));
         }
       }
     }

@@ -57,7 +57,7 @@ class UA
   }
 
   /**
-   * @return Brand[]|null
+   * @return Brand[]
    */
   public function getBrands()
   {
@@ -66,12 +66,16 @@ class UA
       if ($m = $this->getBrandMatches($this->string))
       {
         $this->brands = [];
+        $versions     = [];
         foreach ($m as $set)
         {
-          if (in_array($set['brand'], self::KNOWN))
-          {
-            $this->brands[] = new Brand(trim($set['brand']), new ClientVersion($set['version']));
-          }
+          $versions[trim($set['brand'])] = $set['version'];
+        }
+        $brands = Brand::sort(array_keys($versions));
+
+        foreach ($brands as $brand)
+        {
+          $this->brands[] = new Brand($brand, new ClientVersion($versions[$brand]));
         }
       }
     }

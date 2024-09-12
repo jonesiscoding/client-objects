@@ -43,7 +43,7 @@ class Browser
    */
   public function __construct($brands, $version, $features = null)
   {
-    $this->brands   = is_array($brands) ? $brands : [$brands];
+    $this->brands   = is_array($brands) ? Brand::sort($brands) : [$brands];
     $this->version  = $version instanceof ClientVersion ? $version : new ClientVersion($version);
     $this->features = $features;
   }
