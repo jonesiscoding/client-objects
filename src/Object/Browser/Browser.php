@@ -79,6 +79,16 @@ class Browser
   }
 
   /**
+   * Convenience method to return the name of the primary brand of this browser.
+   *
+   * @return string
+   */
+  public function getName(): string
+  {
+    return $this->getBrand()->getName();
+  }
+
+  /**
    * Returns a UA object generated using the data in this Browser object.
    *
    * @return UA
