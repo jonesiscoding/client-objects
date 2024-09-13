@@ -14,9 +14,22 @@ use DevCoding\Client\Object\Version\ClientVersion;
 
 class Brand
 {
+  const ARC      = 'Arc';
+  const BRAVE    = 'Brave';
+  const CHROME   = 'Google Chrome';
+  const EDGE     = 'Microsoft Edge';
+  const OPERA    = 'Opera';
+  const CHROMIUM = 'Chromium';
+  const FIREFOX  = 'Firefox';
+  const GECKO    = 'Gecko';
+  const SAFARI   = 'Safari';
+  const WEBKIT   = 'WebKit';
+  const IE       = 'Internet Explorer';
+  const TRIDENT  = 'Trident';
+
   const BRANDS = [
-      'Google Chrome','Microsoft Edge','Safari','Firefox','Opera','Internet Explorer',
-      'Chromium','WebKit','Gecko','Trident'
+      self::CHROME, self::EDGE, self::OPERA, self::BRAVE, self::ARC, self::FIREFOX, self::SAFARI, self::IE,
+      self::CHROMIUM, self::WEBKIT, self::GECKO, self::TRIDENT
   ];
 
   /** @var string */
