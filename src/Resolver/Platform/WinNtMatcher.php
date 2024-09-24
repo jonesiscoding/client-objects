@@ -82,17 +82,32 @@ class WinNtMatcher extends PlatformMatcher
     }
   }
 
+  /**
+   * Transforms a CH-UA-PlatformVersion hint into a Windows version, where possible.
+   *
+   * @param string $platform
+   *
+   * @return float|null
+   */
   public static function normalizeHint($platform)
   {
     $pVersion = (string) $platform;
 
-    if ($pVersion > 0)
+    switch($pVersion)
     {
-      return $pVersion >= 13 ? '11' : '10';
-    }
-    else
-    {
-      return null;
+      case '0.0.0':
+        return 6.1;
+      case '0.1.0':
+        return 7;
+      case '0.2.0':
+        return 8;
+      case '0.3.0':
+        return 8.1;
+      case '0':
+      case '':
+        return null;
+      default:
+        return $pVersion >= 13 ? '11' : '10';
     }
   }
 
