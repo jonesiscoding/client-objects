@@ -16,7 +16,7 @@
       "DevCoding\\Client\\Factory\\": "src/Factory"
     }
   },
-  "version": "2.0.9",
+  "version": "2.0.10",
   "prefer-stable": true,
   "minimum-stability": "dev",
   "repositories": [

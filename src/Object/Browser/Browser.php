@@ -39,9 +39,9 @@ class Browser
   /**
    * @param array|string               $brands
    * @param ClientVersion|string|float $version
-   * @param BrowserFeature[]|null      $features
+   * @param BrowserFeature[]           $features
    */
-  public function __construct($brands, $version, $features = null)
+  public function __construct($brands, $version, $features = [])
   {
     $this->brands   = is_array($brands) ? Brand::sort($brands) : [$brands];
     $this->version  = $version instanceof ClientVersion ? $version : new ClientVersion($version);
